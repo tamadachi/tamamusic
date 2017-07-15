@@ -1,0 +1,82 @@
+html {
+     height: 100%; /* makes sure our HTML takes up 100% of the browser window */
+     font-size: 100%;
+ }
+ 
+ body {
+     font-family: 'Open Sans'; /* sets our font to the "Open Sans" typeface */
+     color: white;             /* sets the text color to white */
+     min-height: 100%;         /* says the height of the body must be, at minimum, 100% of the window */
+     /*background-color: #626370  MY TEST. WHY IS THE body.landing version needed, if I can put this in b */
+ }
+ 
+ body.landing {
+     background-color: #626370;
+
+}
+ .navbar {
+     padding: 0.5rem;
+     background-color: #626370 ;
+ }
+ 
+ .navbar .logo { /* space between .navbar and .logo means descendant selector The browser applies the style to elements of the logo class which are contained in elements of the navbar class. If no space, it means the navbar element that has the .logo applied to it*/
+     position: relative; /* positioning will be explained in a resource */
+     left: 2rem;
+ }
+
+ .hero-content {
+     position: relative; /* positioning will be explained in a resource */
+     min-height: 600px;  /* hero content element must be _at least_ 600 pixels */
+     font-family: 'Bellefair', serif;
+     color: white;       
+    background-image: url(../assets/images/bg.jpg);
+     background-repeat: no-repeat;
+     background-position: center center;
+     background-size: cover;
+ }
+
+.hero-content .hero-title {
+     position: absolute;             /* positioning will be explained in a resource */
+     top: 40%;                       /* positioning will be explained in a resource */
+     -webkit-transform: translateY(-50%);
+     -moz-transform: translateY(-50%);
+     -ms-transform: translateY(-50%);
+     transform: translateY(-50%);
+     width: 100%;                    /* makes sure the title inhabits the full width of its container */
+     text-align: center;             /* aligns text in the horizontal center of the element */
+     font-size: 4rem;                /* specifies the size of the font in root em units */
+     font-weight: 300;               /* makes the font thinner or lighter weight */
+     text-transform: uppercase;      /* transforms the text to be all uppercase lettering */
+     letter-spacing: 0.5rem;         /* puts 0.5 root ems worth of space between each letter */
+     text-shadow: 2px 2px 2px #CAB388, 5px 5px 5px #000000; /* creates a shadow underneath the text for readability over the image */
+ }
+
+ .selling-points {
+     position: relative;
+     display: table;
+     width: 100%;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box; /* we'll explain this in a resource */
+ }
+ 
+ .point {
+     display: table-cell;
+     position: relative;
+     width: 33.3%;
+     padding: 2rem;
+     text-align: center;
+ }
+ 
+ .point .point-title {
+     font-size: 1.25rem;
+ }
+ 
+ .ion-music-note,
+ .ion-radio-waves,
+ .ion-iphone {
+     color: #d38e49;
+     font-size: 5rem;
+ }
+
+
