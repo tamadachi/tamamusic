@@ -48,15 +48,55 @@ html {
  }
  
  .navbar {
+     position: relative; 
      padding: 0.5rem;
-     background-color: #626370 ;
+     background-color:rgba(98, 99, 112, 0.5);
+    z-index: 1;
  }
  
  .navbar .logo { /* space between .navbar and .logo means descendant selector The browser applies the style to elements of the logo class which are contained in elements of the navbar class. If no space, it means the navbar element that has the .logo applied to it*/
      position: relative; /* positioning will be explained in a resource */
      left: 2rem;
+     cursor: pointer;
  }
 
+.navbar .links-container {
+     display: table;
+     position: absolute;
+     top: 0;
+     right: 0;
+     height: 100px;
+     color: white;
+    text-decoration: none;
+}
+
+
+ .links-container .navbar-link {
+     display: table-cell;
+     position: relative;
+     height: 100%;
+     padding-left: 1rem;
+     padding-right: 1rem;
+     /* #4 */
+     vertical-align: middle;
+     color: white;
+     font-size: 0.625rem;
+     letter-spacing: 0.05rem;
+     font-weight: 700;
+     text-transform: uppercase;
+     /* #3 */
+     text-decoration: none;
+     cursor: pointer;
+ }
+ 
+   /* #5 */
+ .links-container .navbar-link:hover {
+     color: rgb(211, 142, 73);
+ }
+
+.links-container .navbar-link:active {
+    background-color: white;
+}
 
 .clearfix::before,
 .clearfix::after {
