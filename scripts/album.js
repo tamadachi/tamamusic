@@ -65,11 +65,46 @@ var setCurrentAlbum = function(album) {
      }
  };
  
+
+var findParentByClassName = function(element, targetClass) {
+    if (element) {
+        var currentParent = element.parentElement;
+        while (currentParent.className !== targetClass && currentParent.className !== null) {
+            currentParent = currentParent.parentElement;
+        }
+        return currentParent;
+    }
+};
+
+var getSongItem = function(element) {
+    switch (element.className) {
+        case 'album-song-button':
+        case 'ion-play':
+            
+        case 'ion-pause':
+            return findParentByClassName(element, 'song-item-number');
+        case 'album-view-song-item':
+            return element.querySelector('.song-item-number');
+        case 'song-item-title':
+        case 'song-item-duration':
+            return findParentByClassName(element, 'album-view-song-item').querySelector('.song-item-number');
+        case 'song-item-number':
+            return element;
+        default:
+            return;
+    }  
+};
+
+
 var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
 var songRows = document.getElementsByClassName('album-view-song-item');
  // Album button templates
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
+var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 
+
+ // Store state of playing songs. We set it to null so that no song is identified as playing until we click one. To register the click that will eventually change the value of currentlyPlayingSong, add an event listener for the click event in the same for loop we created for the mouseleave event:
+ var currentlyPlayingSong = null;
 
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
@@ -87,6 +122,10 @@ var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></
              // Revert the content back to the number
              // Selects first child element, which is the song-item-number element
              this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+    });
+          songRows[i].addEventListener('click', function(event) {
+             // Event handler call
          });
      }   
+     
  }
